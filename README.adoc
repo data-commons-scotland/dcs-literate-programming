@@ -1,0 +1,8 @@
+= Literate programming
+
+This repository uses https://en.wikipedia.org/wiki/Literate_programming[literate programming] 
+tools (such as https://github.com/nextjournal/clerk[Clerk])
+to create documents (such as tutorials, how-to guides, etc.) for the Data Commons Scotland project.
+These documents have narratives which are interwoven with (computer program driven) 
+data, code and graph visualisation.
+
