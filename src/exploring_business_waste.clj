@@ -73,15 +73,18 @@
 ;; This should help us compare waste between business sectors, and identify trends. 
 
 ;; Specify the layout basics for the graphs. 
-(def layout {:xaxis     {:automargin true
-                         :title      {:text     "year"
-                                      :standoff 0.1}}
-             :yaxis     {:title      "tonnes"
-                         :automargin true}
-             :legend    {:orientation "h"
-                         :font        {:size 10}
-                         :xanchor     "bottom"
-                         :y           -0.2}})
+(def layout {:xaxis        {:automargin true
+                            :title      {:text     "year"
+                                         :standoff 0.1}}
+             :yaxis        {:title      "tonnes"
+                            :automargin true}
+             :legend       {:orientation "h"
+                            :font        {:size 10}
+                            :xanchor     "bottom"
+                            :y           -0.2}
+             :plot_bgcolor "#fff1e5"
+             :paper_bgcolor "floralwhite"
+             })
 
 ;; Define a helper function...
 ;; * that given data about a `business-sector`,
@@ -126,12 +129,17 @@
   (->> ds-materials
        (map ->graph)))
 
-;; TODO
+;; ## What information has been surfaced?
+;;
+;; NOTE: This section is still *work-in-progress*.
+;;
 ;; Say somethings about what we can learn from the graphs
-;;   see relative amounts, and trends
-;;   spot erratic plotlines (some obvious, some obvious only after hiding the top plotlines)
-;;   Longannet
+;; * see relative amounts, and trends
+;; * spot erratic plotlines (some obvious, some obvious only after hiding the top plotlines)
+;; * Longannet
+;;
 ;; Say something about the tech
-;;   The source code ehind this page is at ...
-
+;; * The source code behind this page is at 
+;;    [https://raw.githubusercontent.com/data-commons-scotland/dcs-literate-programming/master/src/exploring_business_waste.clj](https://raw.githubusercontent.com/data-commons-scotland/dcs-literate-programming/master/src/exploring_business_waste.clj)
+;;
 
