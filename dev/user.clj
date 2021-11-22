@@ -1,6 +1,7 @@
 (ns user
   (:require [clojure.java.browse :as browse]
-            [nextjournal.clerk :as clerk]))
+            [nextjournal.clerk :as clerk]
+            [nextjournal.clerk.viewer :as v]))
 
 (comment
 
