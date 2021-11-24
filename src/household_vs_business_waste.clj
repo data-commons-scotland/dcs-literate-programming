@@ -97,12 +97,17 @@
                     :legend {:traceorder "reversed"}
                     :plot_bgcolor "#fff1e5" :paper_bgcolor "floralwhite"}})
 
-;; ## 5. Concluding remarks
+;; ## Concluding remarks
 
-;; The graph provides at-a-glance-comparison between Scotland's households and businesses
+;; The graph provides an at-a-glance-comparison between Scotland's households and businesses
 ;; in respect of the yearly amounts waste that they have generated during the last decade.
 ;;
 ;; The _household:business_ ratio has been very approximately _2:3_,
 ;; but waste from businesses has been reducing noticably over the decade.
 ;;
 ;; (Figures for business waste in 2019, haven't yet been released.)
+
+;; ## Source code
+
+;; The source code for this page is at:
+;; [https://raw.githubusercontent.com/data-commons-scotland/dcs-literate-programming/master/src/household_vs_business_waste.clj](https://raw.githubusercontent.com/data-commons-scotland/dcs-literate-programming/master/src/household_vs_business_waste.clj)
