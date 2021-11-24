@@ -20,18 +20,17 @@
 
   ;; or call `clerk/show!` explicitly
   (clerk/show! "src/exploring_business_waste.clj")
+  (clerk/show! "src/household_vs_business_waste.clj")
 
   (clerk/clear-cache!)
 
-  ;; (In the 'Display the graphs' step below, we want to display a list of 34 graphs - one for each `material`.
-  ;; And we're using the [Clerk](https://github.com/nextjournal/clerk) 
-  ;; [literate programming](https://en.wikipedia.org/wiki/Literate_programming) tool to display things on this webpage.
   ;; Clerk elides lists after the 20th element; show and tweak the eliding parameter :n
   (-> @v/!viewers :root (get 10) :fetch-opts :n)
   (swap! v/!viewers update-in [:root 10 :fetch-opts] #(assoc % :n 35))
 
   ;; generate a 'static app'
-  (clerk/build-static-app! {:paths (mapv #(str "src/" % ".clj")
-                                         '[exploring_business_waste])})
+  (clerk/build-static-app! {:paths (mapv #(str "src/" % ".clj") 
+                                         '[exploring_business_waste
+                                           household_vs_business_waste])})
 
   )
