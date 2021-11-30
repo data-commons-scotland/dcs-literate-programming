@@ -1,7 +1,18 @@
 {:paths ["dev"]
- :deps {io.github.nextjournal/clerk        {:mvn/version "0.2.209"}
-
-        com.github.seancorfield/next.jdbc  {:mvn/version "1.2.659"}
-        scicloj/tablecloth                 {:mvn/version "6.012"}
-        org.clojure/data.csv               {:mvn/version "1.0.0"}
-        org.xerial/sqlite-jdbc             {:mvn/version "3.34.0"}}}
+ :deps {;; current stable
+        ;; io.github.nextjournal/clerk       {:mvn/version "0.2.209"} 
+        
+        ;; Martin's latest cut which supports 'visibility'
+        ;io.github.nextjournal/clerk       {:git/sha "a6ee5c71f7975fdca055d1bb701c9ed566da700d"}
+        io.github.nextjournal/clerk       {:git/sha "54ca8472961aec56bcb97a852af763c78aae4630"}
+        ;; ^{:nextjournal.clerk/visibility #{:hide-ns}}
+        ;; ^{:nextjournal.clerk/visibility #{:fold-ns}}
+        ;; ^{:nextjournal.clerk/visibility #{:hide}}
+        ;; ^{:nextjournal.clerk/visibility #{:show}}
+        ;; ^{:nextjournal.clerk/visibility #{:fold}}
+        
+        com.github.seancorfield/next.jdbc {:mvn/version "1.2.659"}
+        scicloj/tablecloth                {:mvn/version "6.012"}
+        org.clojure/data.csv              {:mvn/version "1.0.0"}
+        org.xerial/sqlite-jdbc            {:mvn/version "3.34.0"}
+        clj-http/clj-http                 {:mvn/version "3.10.3"}}}

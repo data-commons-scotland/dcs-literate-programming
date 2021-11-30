@@ -21,6 +21,7 @@
   ;; or call `clerk/show!` explicitly
   (clerk/show! "src/exploring_business_waste.clj")
   (clerk/show! "src/household_vs_business_waste.clj")
+  (clerk/show! "src/scotgov_datasets.clj")
 
   (clerk/clear-cache!)
 
