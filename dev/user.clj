@@ -33,5 +33,7 @@
   (clerk/build-static-app! {:paths (mapv #(str "src/" % ".clj") 
                                          '[exploring_business_waste
                                            household_vs_business_waste])})
+  (clerk/build-static-app! {:paths (mapv #(str "src/" % ".clj")
+                                         '[scotgov_datasets])})
 
   )
