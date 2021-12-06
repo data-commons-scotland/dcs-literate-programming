@@ -11,7 +11,8 @@
   (:require [mundaneum.query :as wd]
             [backtick :as b]
             [tablecloth.api :as tc]
-            [nextjournal.clerk :as clerk]))
+            [nextjournal.clerk :as clerk]
+            [clojure.string :as str]))
 
 
 (def queries 
@@ -85,10 +86,13 @@
 (tc/shape DS')
 
 ;; display as a table
-(->> (tc/rows DS' :as-maps)
-     (sort-by :itemLabel)
-     clerk/table)
-
+(let [ds (tc/order-by DS' :itemLabel)]
+  (clerk/table {"name" (-> ds :itemLabel vec) 
+                "QID" (-> ds :item vec) 
+                "from query" (->> ds 
+                                  :from-query 
+                                  (map (fn [coll] (str/join ", " coll))) 
+                                  vec)}))
 
 
 
