@@ -22,6 +22,7 @@
   (clerk/show! "src/exploring_business_waste.clj")
   (clerk/show! "src/household_vs_business_waste.clj")
   (clerk/show! "src/scotgov_datasets.clj")
+  (clerk/show! "src/scotgov_hierarchy.clj")
 
   (clerk/clear-cache!)
 

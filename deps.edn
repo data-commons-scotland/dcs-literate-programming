@@ -15,4 +15,6 @@
         scicloj/tablecloth                {:mvn/version "6.012"}
         org.clojure/data.csv              {:mvn/version "1.0.0"}
         org.xerial/sqlite-jdbc            {:mvn/version "3.34.0"}
-        clj-http/clj-http                 {:mvn/version "3.10.3"}}}
+        clj-http/clj-http                 {:mvn/version "3.10.3"}
+        backtick                          {:mvn/version "0.3.4"}
+        com.github.jackrusher/mundaneum   {:git/sha "84476918ee47b66a2d6128e1a90780e52fd2ae44"}}}
