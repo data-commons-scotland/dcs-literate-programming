@@ -8,12 +8,12 @@
   ;; start without file watcher, open browser when started
   (clerk/serve! {:browse? true})
 
-  ;; start with file watcher
-  (clerk/serve! {:watch-paths ["src" #_"other_src"]})
+  ;; start with file watcher for these sub-directory paths
+(clerk/serve! {:watch-paths ["notebooks" "src" "index.md"]})
 
-  ;; start with file watcher and show filter function to enable notebook pinning
-  (clerk/serve! {:watch-paths ["src" #_"other_src"]
-                 :show-filter-fn #(clojure.string/starts-with? % "literate_programming")})
+  ;; start with file watcher and a `show-filter-fn` function to watch
+  ;; a subset of notebooks
+(clerk/serve! {:watch-paths ["notebooks" "src"] :show-filter-fn #(clojure.string/starts-with? % "notebooks")})
 
   ;; open clerk
   (browse/browse-url "http://localhost:7777")
@@ -21,8 +21,10 @@
   ;; or call `clerk/show!` explicitly
   (clerk/show! "src/exploring_business_waste.clj")
   (clerk/show! "src/household_vs_business_waste.clj")
-  (clerk/show! "src/scotgov_datasets.clj")
-  (clerk/show! "src/scotgov_label_first_wikidata.clj")
+  (clerk/show! "notebooks/scotgov_datasets.clj")
+  (clerk/show! "notebooks/scotgov_label_first_wikidata.clj")
+
+  (clerk/show! "index.md")
 
   (clerk/clear-cache!)
 
@@ -34,7 +36,7 @@
   (clerk/build-static-app! {:paths (mapv #(str "src/" % ".clj") 
                                          '[exploring_business_waste
                                            household_vs_business_waste])})
-  (clerk/build-static-app! {:paths (mapv #(str "src/" % ".clj")
+  (clerk/build-static-app! {:paths (mapv #(str "notebooks/" % ".clj")
                                          '[scotgov_datasets])})
 
   )
