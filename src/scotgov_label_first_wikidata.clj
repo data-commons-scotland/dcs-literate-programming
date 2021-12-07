@@ -1,20 +1,21 @@
-;; # Explore a hierarchy of Scottish government agencies
+;; # The _label-first_ querying of WikiData for Scottish government agencies
 
-;; One of the [CTC24](https://codethecity.org/what-we-do/hack-weekends/ctc24-open-in-practice/) 
-;; projects modelled the whole of government in Scotland on Wikidata,
+;; One of the projects of [CTC24](https://codethecity.org/what-we-do/hack-weekends/ctc24-open-in-practice/) 
+;; modelled the whole of government in Scotland on Wikidata,
 ;; culminating in [this SPARQL query](https://w.wiki/4TpN) to show the results.
 
-;; This namespace explores that SPARLQ query and **...TODO**
+;; In this namespace we construct a _label-first_ query that is equivalent to CTC24's query.
+;; To do so, we use [Mundaneum](https://github.com/jackrusher/mundaneum) - Jack Rusher's query abstraction over Wikidata.
 
-;; Load Jack Rusher's query abstraction over Wikidata.
-(ns scotgov-hierarchy
+;; Load the helper libraries.
+(ns scotgov-label-first-wikidata
   (:require [mundaneum.query :as wd]
             [backtick :as b]
             [tablecloth.api :as tc]
             [nextjournal.clerk :as clerk]
             [clojure.string :as str]))
 
-
+;; Define the queries in a _label-first_ way.
 (def queries 
   
   {:exec-agency         '[[?item (wdt :instance-of) (entity "executive agency in the Scottish government")]]
@@ -58,8 +59,8 @@
 
    :court               '[[?item (wdt :part-of) (entity "Courts of Scotland")]]})
 
-
-(def DS (-> (for [[id where-clause] queries]
+;; Execute those queries and collect their results into a column-oriented dataset.
+(def DS0 (-> (for [[id where-clause] queries]
               (->
                (b/template
                 [:select distinct ?item ?itemLabel
@@ -71,33 +72,26 @@
                (tc/add-column :from-query id)))
             (->> (apply tc/concat))))
 
-;; expect 244
-(tc/shape DS)
+;; Expect 244 rows.
+(tc/shape DS0)
 
-;; de-dup
-(def DS' (-> DS
+;; De-dup.
+(def DS (-> DS0
              (tc/fold-by [:item :itemLabel])))
 
-;; those arising from > 1 query
-(-> DS'
+;; Display those arising from > 1 query.
+(-> DS
     (tc/select-rows #(-> % :from-query count (> 1))))
 
-;; expect 238
-(tc/shape DS')
+;; Expect 238 de-duped.
+(tc/shape DS)
 
-;; display as a table
-(let [ds (tc/order-by DS' :itemLabel)]
+;; Display the final result as a table.
+(let [ds (tc/order-by DS :itemLabel)]
   (clerk/table {"name" (-> ds :itemLabel vec) 
                 "QID" (-> ds :item vec) 
                 "from query" (->> ds 
                                   :from-query 
-                                  (map (fn [coll] (str/join ", " coll))) 
+                                  (map (fn [coll] (str/join " , " coll))) 
                                   vec)}))
-
-
-
-
-
-
-
 
