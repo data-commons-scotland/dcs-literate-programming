@@ -6,10 +6,10 @@ to create documents (such as tutorials, walk-throughs, etc.) for the Data Common
 These documents have narratives which are interwoven with (computer program driven) 
 data, code and graph visualisation.
 
-== Building 'static' HTML pages from some 'notebooks'
+== Building 'static' web pages from the source 'notebooks'
 
 [source]
 ----
-clj -X:ashnbs
+clj -X:web-pages
 ----
 

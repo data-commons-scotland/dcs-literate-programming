@@ -33,10 +33,7 @@
   (swap! v/!viewers update-in [:root 10 :fetch-opts] #(assoc % :n 35))
 
   ;; generate a 'static app'
-  (clerk/build-static-app! {:paths (mapv #(str "src/" % ".clj") 
-                                         '[exploring_business_waste
-                                           household_vs_business_waste])})
   (clerk/build-static-app! {:paths (mapv #(str "notebooks/" % ".clj")
-                                         '[scotgov_datasets])})
+                                         '[household_vs_business_waste])})
 
   )

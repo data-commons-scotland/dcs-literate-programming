@@ -4,7 +4,7 @@
   (:require [nextjournal.clerk :as clerk]))
 ```
 
-# 🗒️ Ash's DCS notebooks [on GitHub](https://github.com/ash-mcc/dcs-TODO)
+# 🗒️ Tutorials, walk-throughs, etc. 
 
 ```clojure
 (clerk/html
@@ -20,11 +20,11 @@
          [:div.sans-serif.border-t.border-gray-300.px-4.py-2.group-hover:border-indigo-600
           [:div.font-bold.block.group-hover:text-indigo-600 title]
           [:div.text-xs.text-gray-500.group-hover:text-indigo-600.leading-normal description]]])
-      [{:title "🏴󠁧󠁢󠁳󠁣󠁴󠁿 Title for scotgov_datasets"
-        :preview "../img/download-our-datasets.png"
-        :path "notebooks/scotgov_datasets.html"
-        :description "Datasets..."}
-       {:title "🏷️ Title for scotgov_label_first_wikidata"
-        :preview "../img/project-team.png"
-        :path "notebooks/scotgov_label_first_wikidata.html"
-        :description "🏷️ Label-first..."}])))
+      [{:title "󠁧󠁢󠁳Exploring Scotland's business waste data"
+        :preview "../../preview-exploring-business-waste.png"
+        :path "notebooks/exploring_business_waste.html"
+        :description "A walk-through on how to extract information from the data about business waste in Scotland."}
+       {:title "Household-vs-business wastes in Scotland"
+        :preview "../../preview-household-vs-business_waste.png"
+        :path "notebooks/household_vs_business_waste.html"
+        :description "A walk-through on how to build a graph that provides at-a-glance-comparison."}])))
