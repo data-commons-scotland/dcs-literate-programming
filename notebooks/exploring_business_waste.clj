@@ -149,5 +149,5 @@
 ;; ## Source code
 
 ;; The source code for this page is at:
-;; [https://raw.githubusercontent.com/data-commons-scotland/dcs-literate-programming/master/src/exploring_business_waste.clj](https://raw.githubusercontent.com/data-commons-scotland/dcs-literate-programming/master/src/exploring_business_waste.clj)
+;; [https://raw.githubusercontent.com/data-commons-scotland/dcs-literate-programming/master/notebooks/exploring_business_waste.clj](https://raw.githubusercontent.com/data-commons-scotland/dcs-literate-programming/master/notebooks/exploring_business_waste.clj)
 
