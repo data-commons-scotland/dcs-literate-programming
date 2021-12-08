@@ -2,7 +2,7 @@
  :deps    {;; current stable
         ;; io.github.nextjournal/clerk       {:mvn/version "0.2.209"} 
         ;; Martin's latest cut which supports 'visibility' and other improvements
-           io.github.nextjournal/clerk       {:git/sha "64ce88eb80609ab915b61fbabd46f7d9c8ac1375"} 
+           io.github.nextjournal/clerk       {:git/sha "aa6ed09880316d15b0d3c76ae50505d1978e4008"} 
            
            com.github.seancorfield/next.jdbc {:mvn/version "1.2.659"}
            scicloj/tablecloth                {:mvn/version "6.012"}
